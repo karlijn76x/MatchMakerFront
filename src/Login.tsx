@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./LoginScreen.css";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -12,16 +13,17 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div className="container-fluid">
       <div className="card shadow" style={{ width: "400px" }}>
         <div className="card-body">
           <div className="text-center">
             <img
-              src="logo.png"
+              src="./src/img/LogoMM.jpg"
               alt="MatchMaker Logo"
               style={{ width: "100px", marginBottom: "20px" }}
             />
             <h4 className="card-title mb-4">Welcome to MatchMaker!</h4>
+            <h6 className="card-title mb-7">Login to get started.</h6>
           </div>
 
           <form onSubmit={handleLogin}>
@@ -62,12 +64,12 @@ const Login: React.FC = () => {
             </button>
             <div className="text-center">
               <span className="text-muted">
-                No account yet?{" "}
-                <a href="#" className="text-primary">
-                  Create one!
-                </a>
+                No account yet? Let's create one!
               </span>
             </div>
+            <button type="submit" className="btn btn-primary w-100 mb-3">
+              Create account
+            </button>
           </form>
         </div>
       </div>
