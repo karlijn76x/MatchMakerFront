@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
 import "./LoginScreen.css";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate();
+
+  const handleCreateAccount = () => {
+    navigate("/create-account");
+  };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,8 +73,10 @@ const Login: React.FC = () => {
                 No account yet? Let's create one!
               </span>
             </div>
-            <button type="submit" className="btn btn-primary w-100 mb-3">
-              Create account
+            <button
+              onClick={handleCreateAccount}
+              className="btn btn-primary w-100 mb-3">
+              Create Account
             </button>
           </form>
         </div>

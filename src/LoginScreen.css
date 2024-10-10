@@ -26,6 +26,7 @@
 
   .btn {
     background-color: #0A323C;
+    margin-top: 10px;
   }
   .btn:hover {
     background-color: #091428;
