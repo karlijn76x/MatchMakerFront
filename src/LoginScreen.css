@@ -10,4 +10,28 @@
   .w-100 {
     width: 100%;
   }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
   
+  .container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   background-color: #0A323C;
+  }
+
+  .btn {
+    background-color: #0A323C;
+    margin-top: 10px;
+  }
+  .btn:hover {
+    background-color: #091428;
+  }
+
+  .card-body {
+    background-color: #F0E6D2;
+  }
