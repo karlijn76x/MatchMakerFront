@@ -8,8 +8,8 @@ const CreateAccount: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [username, setUserName] = useState<string>("");
-  const [age, setAge] = useState<number>(0);
-  const [region, setRegion] = useState<string>("");
+  const [age] = useState<number>(0);
+  const [region] = useState<string>("");
 
   const handleCreateAccount = () => {
     console.log(

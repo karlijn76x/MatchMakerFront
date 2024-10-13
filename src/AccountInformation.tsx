@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 const AccountInformation: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleAccountCreated = () => {
+    navigate("/");
+  };
+
   return (
     <div className="container-fluid">
       <div className="card shadow" style={{ width: "400px" }}>
@@ -15,6 +19,11 @@ const AccountInformation: React.FC = () => {
               alt="MatchMaker Logo"
               style={{ width: "100px", marginBottom: "20px" }}
             />
+            <button
+              onClick={handleAccountCreated}
+              className="btn btn-primary w-100 mb-3">
+              Let's go
+            </button>
           </div>
         </div>
       </div>
