@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
+import { createUserAccount } from "../API/ApiServiceAccount";
 
 const CreateAccount: React.FC = () => {
   const navigate = useNavigate();
@@ -8,19 +9,42 @@ const CreateAccount: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [username, setUserName] = useState<string>("");
-  const [age] = useState<number>(0);
-  const [region] = useState<string>("");
+  const [region, setRegion] = useState<string>("");
 
-  const handleCreateAccount = () => {
-    console.log(
-      "Account created with:",
+  const regions = [
+    { value: "NA", label: "North America" },
+    { value: "EUW", label: "Europe West" },
+    { value: "EUNE", label: "Europe Nordic & East" },
+    { value: "OCE", label: "Oceania" },
+    { value: "RU", label: "Russia" },
+    { value: "TR", label: "Turkey" },
+    { value: "BR", label: "Brazil" },
+    { value: "LAN", label: "Latin America North" },
+    { value: "LAS", label: "Latin America South" },
+    { value: "JP", label: "Japan" },
+    { value: "TW", label: "Taiwan" },
+    { value: "SGMYID", label: "Singapore, Malaysia, Indonesia" },
+    { value: "TH", label: "Thailand" },
+    { value: "PH", label: "Philippines" },
+    { value: "ME", label: "Middle East" },
+  ];
+
+  const handleCreateAccount = async () => {
+    const userData = {
       email,
-      password,
+      passwordHash: password,
       username,
-      age,
-      region
-    );
-    navigate("/account-information");
+      region,
+      summonerName: "",
+      imageName: "",
+    };
+    try {
+      const result = await createUserAccount(userData);
+      console.log("Account created with:", result);
+      navigate("/AccountInformation");
+    } catch (error) {
+      console.error("Error creating account:", error);
+    }
   };
 
   return (
@@ -60,7 +84,7 @@ const CreateAccount: React.FC = () => {
                 <input
                   type="password"
                   className="form-control"
-                  id="password"
+                  id="passwordHash"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -80,41 +104,24 @@ const CreateAccount: React.FC = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="age" className="form-label">
-                  Age
-                </label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="age"
-                  required
-                />
-              </div>
-              <div className="mb-3">
                 <label htmlFor="regionSelect" className="form-label">
                   Choose your region:
                 </label>
                 <select
                   id="regionSelect"
                   name="region"
-                  className="form-select mb-3">
-                  <option value="NA">North America</option>
-                  <option value="EUW">Europe West</option>
-                  <option value="EUNE">Europe Nordic & East</option>
-                  <option value="OCE">Oceania</option>
-                  <option value="RU">Russia</option>
-                  <option value="TR">Turkey</option>
-                  <option value="BR">Brazil</option>
-                  <option value="LAN">Latin America North</option>
-                  <option value="LAS">Latin America South</option>
-                  <option value="JP">Japan</option>
-                  <option value="TW">Taiwan</option>
-                  <option value="SGMYID">Singapore, Malaysia, Indonesia</option>
-                  <option value="TH">Thailand</option>
-                  <option value="PH">Philippines</option>
-                  <option value="ME">Middle East</option>
+                  className="form-select mb-3"
+                  value={region}
+                  onChange={(e) => setRegion(e.target.value)}
+                  required>
+                  {regions.map((region) => (
+                    <option key={region.value} value={region.value}>
+                      {region.label}
+                    </option>
+                  ))}
                 </select>
                 <button
+                  type="button"
                   onClick={handleCreateAccount}
                   className="btn btn-primary w-100 mb-3">
                   Let's go
