@@ -41,7 +41,7 @@ const CreateAccount: React.FC = () => {
     try {
       const result = await createUserAccount(userData);
       console.log("Account created with:", result);
-      navigate("/AccountInformation");
+      navigate(`/account-information/${result.id}`);
     } catch (error) {
       console.error("Error creating account:", error);
     }

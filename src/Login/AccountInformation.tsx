@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getChampions } from "../API/ApiServiceChampions";
 
 const AccountInformation: React.FC = () => {
   const navigate = useNavigate();
   const [champions, setChampions] = React.useState<any[]>([]);
+  const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
     const fetchChampions = async () => {
@@ -21,6 +23,7 @@ const AccountInformation: React.FC = () => {
   }, []);
 
   const handleAccountCreated = () => {
+    console.log("User ID: ", userId);
     navigate("/");
   };
 

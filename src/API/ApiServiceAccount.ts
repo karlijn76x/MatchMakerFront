@@ -16,7 +16,6 @@ export const createUserAccount = async (userData: {
       body: JSON.stringify(userData),
     });
     console.log("Response status:", response.status);
-    console.log("Response body:", await response.text());
 
     if (!response.ok) {
       let errorMessage = "An unknown error occurred";
