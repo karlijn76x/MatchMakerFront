@@ -22,7 +22,7 @@ export const createUserAccount = async (userData: {
       try {
         const errorData = await response.json();
         errorMessage = errorData.message || errorMessage;
-      } catch (jsonError) {
+      } catch {
         console.error("Failed to parse error response as JSON");
       }
       throw new Error(errorMessage);

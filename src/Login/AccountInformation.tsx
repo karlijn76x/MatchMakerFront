@@ -4,9 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { getChampions } from "../API/ApiServiceChampions";
 
+interface Champion {
+  id: number;
+  name: string;
+}
+
 const AccountInformation: React.FC = () => {
   const navigate = useNavigate();
-  const [champions, setChampions] = React.useState<any[]>([]);
+  const [champions, setChampions] = React.useState<Champion[]>([]);
   const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
