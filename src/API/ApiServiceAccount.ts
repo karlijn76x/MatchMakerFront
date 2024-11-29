@@ -1,4 +1,4 @@
-const API_URL = "https://localhost:7002/api/Users";
+const API_URL = "http://localhost:7002/api/Users";
 export const createUserAccount = async (userData: {
   email: string;
   passwordHash: string;

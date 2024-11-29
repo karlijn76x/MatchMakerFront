@@ -14,6 +14,11 @@ const AccountInformation: React.FC = () => {
   const [champions, setChampions] = React.useState<Champion[]>([]);
   const { userId } = useParams<{ userId: string }>();
 
+  const handleAccountCreated = () => {
+    console.log("User ID: ", userId);
+    navigate("/swipemenu/${userId}");
+  };
+
   useEffect(() => {
     const fetchChampions = async () => {
       try {
@@ -27,18 +32,13 @@ const AccountInformation: React.FC = () => {
     fetchChampions();
   }, []);
 
-  const handleAccountCreated = () => {
-    console.log("User ID: ", userId);
-    navigate("/");
-  };
-
   return (
     <div className="container-fluid">
       <div className="card shadow" style={{ width: "400px" }}>
         <div className="card-body">
           <div className="text-center">
             <img
-              src="./src/img/LogoMM.jpg"
+              src="/src/img/LogoMM.jpg"
               alt="MatchMaker Logo"
               style={{ width: "100px", marginBottom: "20px" }}
             />

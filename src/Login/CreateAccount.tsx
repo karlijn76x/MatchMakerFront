@@ -29,7 +29,8 @@ const CreateAccount: React.FC = () => {
     { value: "ME", label: "Middle East" },
   ];
 
-  const handleCreateAccount = async () => {
+  const handleCreateAccount = async (event: React.FormEvent) => {
+    event.preventDefault();
     const userData = {
       email,
       passwordHash: password,
@@ -62,7 +63,7 @@ const CreateAccount: React.FC = () => {
               Create an account to get started.
             </h6>
 
-            <form>
+            <form onSubmit={handleCreateAccount}>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
                   E-mail
@@ -120,10 +121,7 @@ const CreateAccount: React.FC = () => {
                     </option>
                   ))}
                 </select>
-                <button
-                  type="button"
-                  onClick={handleCreateAccount}
-                  className="btn btn-primary w-100 mb-3">
+                <button type="submit" className="btn btn-primary w-100 mb-3">
                   Let's go
                 </button>
               </div>

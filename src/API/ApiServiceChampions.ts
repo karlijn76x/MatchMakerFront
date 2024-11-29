@@ -1,4 +1,4 @@
-const API_URL = "https://localhost:7002/api/Champion";
+const API_URL = "http://localhost:7002/api/Champion";
 
 export const getChampions = async () => {
   console.log("Fetching champions from:", API_URL);
