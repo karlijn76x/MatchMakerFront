@@ -5,10 +5,8 @@ import "./SwipeMenu.css";
 const SwipeMenu: React.FC = () => {
   return (
     <div className="container-fluid">
-      {/* Header-component */}
       <Header />
 
-      {/* Card-sectie */}
       <div className="card">
         <div className="image">300 x 300</div>
         <h2 className="Username">*username*</h2>
@@ -24,7 +22,6 @@ const SwipeMenu: React.FC = () => {
         </p>
       </div>
 
-      {/* Knoppen */}
       <div className="buttonContainer">
         <button className="button no">No</button>
         <button className="button yes">Yes</button>

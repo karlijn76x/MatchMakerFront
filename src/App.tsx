@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AccountInformation from "./Login/AccountInformation";
 import SwipeMenu from "./Pages/SwipeMenu";
+import Chat from "./Pages/Chat";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           element={<AccountInformation />}
         />
         <Route path="/SwipeMenu/:userId" element={<SwipeMenu />} />
+        <Route path="/Chat/:userId" element={<Chat />} />
       </Routes>
     </Router>
   );
