@@ -1,7 +1,7 @@
-const API_URL = "https://localhost:7020/api/Champion";
+const API_URL = "https://localhost:7020/api/Role";
 
-export const getChampions = async () => {
-  console.log("Fetching champions from:", API_URL);
+export const getRoles = async () => {
+  console.log("Fetching roles from:", API_URL);
   try {
     const response = await fetch(API_URL, {
       mode: "cors",
@@ -14,10 +14,10 @@ export const getChampions = async () => {
       throw new Error(`API request failed with status ${response.status}`);
     }
     const data = await response.json();
-    console.log("Fetched champions:", data);
+    console.log("Fetched roles:", data);
     return data;
   } catch (error) {
-    console.error("Error fetching champions:", error);
+    console.error("Error fetching roles:", error);
     throw error;
   }
 };
