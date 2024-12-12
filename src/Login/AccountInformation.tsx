@@ -24,19 +24,19 @@ const AccountInformation: React.FC = () => {
   const [selectedLane, setSelectedLane] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!selectedChampion !== null) {
+    if (selectedChampion !== null) {
       console.log("Selected champion:", selectedChampion);
     }
   }, [selectedChampion]);
 
   useEffect(() => {
-    if (!selectedRole !== null) {
+    if (selectedRole !== null) {
       console.log("Selected role:", selectedRole);
     }
   }, [selectedRole]);
 
   useEffect(() => {
-    if (!selectedLane !== null) {
+    if (selectedLane !== null) {
       console.log("Selected lane:", selectedLane);
     }
   }, [selectedLane]);
